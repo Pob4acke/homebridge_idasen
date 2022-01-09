@@ -19,7 +19,7 @@ Script and explanation to control an Ikea Idasen standing desk with Apple home
 
 1. in the homebridge configuration for "blinds-cmd" enter your favourite name and change the value of the "Up Command" and "Down Command Script" to:
 ```
-python [path_to_skript]/move.py
+python2 [path_to_skript]/move.py
 ```
 
 ## Features
@@ -33,15 +33,21 @@ With that you can even say something like "Move desk to sitting height." to Siri
 
 ## How it works
 The script is rather easy (as you might see). Once a height is adjusted in homekit the plugin "homebridge-blinds-cmd" executes the python script "move.py" with a percantage value for the height as an argument. The python script calculates a height from the input value with the following function:
- ```
+```
 y = 620 + (x / 100) * 650
 ```
 620mm is the minimum height of the desk and the maximum will be 1270mm. So with this calculation the percantage that comes from the homebridge plugin will be set to a proper height value for the desk. You will also have the full adjustment range of the desk in homekit.
 
 Next the height value is send to the desk using "idasen-controller --move-to" command.
-As "idasen-controller" delivers many outputs on the screen (which is good for debuggign!), this needs to be supressed for the homebridge plugin. The plugin just wants a percentage value for the height as a response. So for that at the moment I just return the  input value (as print()).
+As "idasen-controller" delivers many outputs on the screen (which is good for debuggign!), this needs to be supressed for the homebridge plugin. The homebridge plugin just wants a percentage value for the height as a response. Therefore the final height value from "idasen-controller" will be taken and calulcated back to a percentage value with the reverse function:
+```
+x = y/6,5 - 95
+```
+As an int value is expected from the homebridge plugin, this calculation is fine.
 
 ## ToDo
+### check script for python3
+check why it does not work in python 3
 ### status script
 As there is no status script, to check the height frequently this needs to be done
 ### stop script
