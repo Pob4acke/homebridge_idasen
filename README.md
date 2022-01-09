@@ -42,12 +42,15 @@ As "idasen-controller" delivers many outputs on the screen (which is good for de
 
 ## ToDo
 - improve return value handling
+
 The actual return value should be taken from height that comes from idasen-controller. With that it should be possible to indicate if the desk got stuck in between
 
 - status script
+
 As there is no status script, to check the height frequently this needs to be done
 
 - stop script
+
 to stop the last command a script needs to be created
 
 ## Notes
