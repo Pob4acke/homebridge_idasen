@@ -16,7 +16,7 @@ Script and explanation to control an Ikea Idasen standing desk with Apple home
 
 ### Configuration
 
-1. in the homebridge configuration for "blinds-cmd" enter your favourite name and change the value of the "Up"- and "Down Command Script" to:
+1. in the homebridge configuration for "blinds-cmd" enter your favourite name and change the value of the "Up Command" and "Down Command Script" to:
 ```
 python3 [path_to_skript]/move.py
 ```
@@ -25,7 +25,7 @@ python3 [path_to_skript]/move.py
 Ads the standing desk as a controllable blind to the home app. You can then move that blind up and down and and so the desk will do.
 Unfortinatly there is nothing like a desk or similar in homekit, so this might be the best solution to freely adjust the height.
 
-I would recomment to set some scenes for your standing and sitting height, with your prefered value, e.g.:
+I would recomment to set some home scenes for your standing and sitting height, with your prefered value, e.g.:
 Standing: blind 90% open
 Sitting: blind 15% open
 With that you can even say something like "Move desk to sitting height." to Siri.
@@ -37,22 +37,22 @@ y = 620 + (x / 100) * 650
 ```
 620mm is the minimum height of the desk and the maximum will be 1270mm. So with this calculation the percantage that comes from the homebridge plugin will be set to a proper height value for the desk. You will also have the full adjustment range of the desk in homekit.
 
-Next the height value is send to the desk using "idasen-controller" and the "--move-to" command.
-As "idasen-controller" delivers many outputs on the screen (which is good for debuggign!), this needs to be suppressed for the homebridge plugin. The plugin just wants a percentage value for the height as a response. So for that at the moment I just return is input value (as print()).
+Next the height value is send to the desk using "idasen-controller --move-to" command.
+As "idasen-controller" delivers many outputs on the screen (which is good for debuggign!), this needs to be supressed for the homebridge plugin. The plugin just wants a percentage value for the height as a response. So for that at the moment I just return the  input value (as print()).
 
 ## ToDo
-- improve return value handling
+### improve return value handling
 
 The actual return value should be taken from height that comes from idasen-controller. With that it should be possible to indicate if the desk got stuck in between
 
-- status script
+### status script
 
 As there is no status script, to check the height frequently this needs to be done
 
-- stop script
+### stop script
 
 to stop the last command a script needs to be created
 
 ## Notes
-Spezial thanks to [idasen-controller](https://github.com/rhyst/idasen-controller) and [homebridge-blinds-cmd](https://github.com/hjdhjd/homebridge-blinds-cmd) as those are the basis for my small script.
+Special thanks to [idasen-controller](https://github.com/rhyst/idasen-controller) and [homebridge-blinds-cmd](https://github.com/hjdhjd/homebridge-blinds-cmd) as those are the basis for my small script.
 If you are willing to contribute, feel free to improve my solution! There are many things one can do better, as I'm just a beginner :)
