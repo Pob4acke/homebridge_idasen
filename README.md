@@ -13,12 +13,13 @@ Script and explanation to control an Ikea Idasen standing desk with Apple home
 1. Install [idasen-controller](https://github.com/rhyst/idasen-controller) and [homebridge-blinds-cmd](https://github.com/hjdhjd/homebridge-blinds-cmd) first
 2. Make sure the homebridge device is paired to the desk over bluetooth
 3. copy the script "move.py" on somewhere to your homebridge device
+4. python2 and python3 need to be installed. Python2 for this script and 3 for idasen-controller (I was having issues with my code in python3)
 
 ### Configuration
 
 1. in the homebridge configuration for "blinds-cmd" enter your favourite name and change the value of the "Up Command" and "Down Command Script" to:
 ```
-python3 [path_to_skript]/move.py
+python [path_to_skript]/move.py
 ```
 
 ## Features
@@ -41,8 +42,6 @@ Next the height value is send to the desk using "idasen-controller --move-to" co
 As "idasen-controller" delivers many outputs on the screen (which is good for debuggign!), this needs to be supressed for the homebridge plugin. The plugin just wants a percentage value for the height as a response. So for that at the moment I just return the  input value (as print()).
 
 ## ToDo
-### improve return value handling
-The actual return value should be taken from height that comes from idasen-controller. With that it should be possible to indicate if the desk got stuck in between
 ### status script
 As there is no status script, to check the height frequently this needs to be done
 ### stop script
