@@ -54,6 +54,7 @@ As there is no status script, to check the height frequently this needs to be do
 to stop the last command a script needs to be created
 ### create own homebridge plugin
 To create an own homebridge plugin should be the final step
+--> Done by vniehues, check out [homebridge-linak](https://github.com/vniehues/homebridge-linak)
 
 ## Notes
 Special thanks to [idasen-controller](https://github.com/rhyst/idasen-controller) and [homebridge-blinds-cmd](https://github.com/hjdhjd/homebridge-blinds-cmd) as those are the basis for my small script.
