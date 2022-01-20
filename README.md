@@ -50,6 +50,7 @@ As an int value is expected from the homebridge plugin, this calculation is fine
 check why it does not work in python 3
 ### status script
 As there is no status script, to check the height frequently this needs to be done
+--> Done by vniehues, check out [homebridge-linak](https://github.com/vniehues/homebridge-linak)
 ### stop script
 to stop the last command a script needs to be created
 ### create own homebridge plugin
@@ -59,3 +60,5 @@ To create an own homebridge plugin should be the final step
 ## Notes
 Special thanks to [idasen-controller](https://github.com/rhyst/idasen-controller) and [homebridge-blinds-cmd](https://github.com/hjdhjd/homebridge-blinds-cmd) as those are the basis for my small script.
 If you are willing to contribute, feel free to improve my solution! There are many things one can do better, as I'm just a beginner :)
+
+And for sure thanks to the one who made it better than me: vniehues, check out [homebridge-linak](https://github.com/vniehues/homebridge-linak)
