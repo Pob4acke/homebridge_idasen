@@ -1,6 +1,9 @@
 # homebridge_idasen
 Script and explanation to control an Ikea Idasen standing desk with Apple home
 
+##Important note
+No further development on this, as there is a proper homebridge plugin now: [homebridge-linak](https://github.com/vniehues/homebridge-linak)
+
 ## Set up
 
 ### Prerequisites
